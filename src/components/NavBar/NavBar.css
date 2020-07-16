@@ -1,0 +1,30 @@
+.NavBar {
+    display: flex;
+    justify-content: flex-end;
+    margin: 0 0 40px;
+    background-color: rgb(219, 237, 214);
+    padding: 20px
+  }
+  
+.NavBar-link {
+  margin: 0 10px;
+  font: 14px
+}
+
+.NavBar-link:hover {
+  margin: 0 10px;
+  font: 14px;
+  background: white
+}
+
+.NavBar-welcome {
+  color: grey;
+}
+
+a:visited {
+  color: black;
+}
+
+/* a:hover {
+  background-color: cadetblue;
+} */
