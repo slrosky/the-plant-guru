@@ -1,0 +1,11 @@
+h1 {
+    font-size: 80px;
+    padding: 20vh
+}
+
+.QuizLink {
+    color: green;
+}
+a:visited {
+    color: green;
+}

@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import './App.css';
 import { Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
+import WelcomeMessage from '../../components/WelcomeMessage/WelcomeMessage';
 import AboutPage from '../AboutPage/AboutPage';
+// import WelcomePage from '../WelcomePage/WelcomePage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
@@ -35,13 +37,16 @@ class App extends Component {
   render() {
     return (
       <div className="App">
+        <header>
+          <NavBar 
+            user={this.state.user}
+            handleLogout={this.handleLogout}
+          />
+        </header>
         <Switch>
           <Route exact path='/' render={() =>
-            <NavBar 
-              user={this.state.user}
-              handleLogout={this.handleLogout}
-            />
-          } />
+            <WelcomeMessage />
+          }/>
           <Route exact path='/signup' render={({ history }) =>
             <SignupPage 
               history={history}
