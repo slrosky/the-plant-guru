@@ -1,24 +1,18 @@
 .NavBar {
-    display: flex;
-    justify-content: flex-end;
-    margin: 0 0 40px;
-    background-color: rgb(219, 237, 214);
-    padding: 20px
-  }
-  
-.NavBar-link {
-  margin: 0 10px;
-  font: 14px
+  display: flex;
+  justify-content: flex-end;
+  margin: 0 0 40px;
+  background-color: rgb(219, 237, 214);
+  padding: 20px;
 }
 
-.NavBar-link:hover {
+.NavBar-link {
   margin: 0 10px;
   font: 14px;
-  background: white
 }
 
 .NavBar-welcome {
-  color: grey;
+  color: palevioletred;
 }
 
 a:visited {

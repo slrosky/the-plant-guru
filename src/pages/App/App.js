@@ -4,10 +4,11 @@ import { Route, Switch } from 'react-router-dom';
 import NavBar from '../../components/NavBar/NavBar';
 import WelcomeMessage from '../../components/WelcomeMessage/WelcomeMessage';
 import AboutPage from '../AboutPage/AboutPage';
-// import WelcomePage from '../WelcomePage/WelcomePage';
+import QuizPage from '../QuizPage/QuizPage';
 import SignupPage from '../SignupPage/SignupPage';
 import LoginPage from '../LoginPage/LoginPage';
 import userService from '../../utils/userService';
+import qData from '../../constants/QuestionData';
 import * as plantAPI from '../../utils/plantAPI';
 
 
@@ -15,7 +16,16 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
+      ...this.getInitialState(),
       user: userService.getUser()
+    };
+  }
+
+  getInitialState() {
+    return {
+      userQuizChoices: [],
+      option: false,
+      plantMatches:[],
     };
   }
 
@@ -26,6 +36,14 @@ class App extends Component {
   handleLogout = () => {
     userService.logout();
     this.setState({user: null});
+  };
+
+  handleUpdateChoice = (e) => {
+    this.props.handleUpdateChoice(false);
+    this.setState({
+      // Using ES2015 Computed Property Names
+      [e.target.option]: true,
+    });
   };
 
   async componentDidMount() {
@@ -61,6 +79,12 @@ class App extends Component {
           }/>
           <Route exact path='/about' render={() =>
             <AboutPage />
+          } />
+          <Route exact path='/quiz' render={ props  =>
+            <QuizPage 
+              user={this.state.user}
+              qData={qData}
+            />
           } />
         </Switch>
       </div>
