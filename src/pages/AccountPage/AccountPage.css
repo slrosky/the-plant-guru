@@ -1,11 +1,9 @@
-.AboutPage {
+.AccountPage {
     margin: 0;
     padding: 20px;
 }
 
-.AboutPage-link {
-    background-color: green;
-    color: white;
+.AccountPage-link {
     border-radius: 2vh;
     padding: 10px 20px;
     text-align: center;

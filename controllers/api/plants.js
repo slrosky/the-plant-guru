@@ -13,3 +13,4 @@ function plants(req, res, next) {
     fetch(rootURL).then(res => res.json())
     .then(data => res.send({ data }))
 }
+

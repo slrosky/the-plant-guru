@@ -8,4 +8,3 @@ export function getAll() {
         return res.json()
     });
 }
-

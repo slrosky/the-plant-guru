@@ -11,8 +11,8 @@ const NavBar = (props) => {
         Log Out
       </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/about" className="NavPage-ProfileLink">
-        Account
+      <Link to="/account" className="NavPage-AccountLink">
+        My Account
       </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;
     </div>
@@ -26,19 +26,10 @@ const NavBar = (props) => {
         Sign Up
       </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;
-\
     </div>
   );
 
-  return (
-    <div className="NavBar">
-      {nav}
-      <Link to="/about" className="NavPage-AboutLink">
-        About
-      </Link>
-      <br />
-    </div>
-  );
+  return <div className="NavBar">{nav}</div>;
 };
 
 export default NavBar;
