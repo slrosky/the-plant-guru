@@ -63,7 +63,7 @@ class Quiz extends Component {
             <input
               type="checkbox"
               value="No"
-              name="Q2"
+              name="Q2"git
               onChange={this.handleUpdateChoice}
             />
             No

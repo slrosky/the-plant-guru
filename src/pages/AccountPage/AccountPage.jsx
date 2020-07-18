@@ -9,6 +9,7 @@ const AccountPage = (props) => (
       <span color="green">plant matches</span>
     </h1>
     <p>Some About Text</p>
+    <p>test for push</p>
   </div>
 );
 
