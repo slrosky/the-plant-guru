@@ -1,6 +1,6 @@
-.App {
+/* .App {
   text-align: center;
-}
+} */
 
 .App-logo {
   height: 40vmin;
@@ -31,4 +31,9 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+h1 {
+  margin: 100px;
+  text-align: center;
 }

@@ -2,14 +2,16 @@
   display: flex;
   justify-content: flex-end;
   margin: 0 0 40px;
-  background-color: rgb(219, 237, 214);
-  padding: 20px;
+  background-color: rgb(255, 255, 255, 0.8);
+  padding: 20px 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
 
 .NavBar-link {
   margin: 0 10px;
   font: 14px;
-  
 }
 
 .NavBar-welcome {
@@ -23,3 +25,8 @@ a:visited {
 /* a:hover {
   background-color: cadetblue;
 } */
+
+img {
+  max-height: 3vh;
+  justify-content: left;
+}

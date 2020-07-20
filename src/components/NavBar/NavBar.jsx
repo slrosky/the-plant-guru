@@ -29,7 +29,14 @@ const NavBar = (props) => {
     </div>
   );
 
-  return <div className="NavBar">{nav}</div>;
+  return (
+    <div className="NavBar">
+      <Link to="/" className="NavBar-link">
+        <img src="https://i.imgur.com/dk24m4H.png"></img>
+      </Link>
+      {nav}
+    </div>
+  );
 };
 
 export default NavBar;

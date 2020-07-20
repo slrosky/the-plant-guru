@@ -1,0 +1,10 @@
+.PlantMatchPage img {
+  display: grid;
+  max-height: 70%;
+  max-width: 200px;
+  margin: 40px
+}
+
+.PlantMatchPage {
+  margin: 80px;
+}

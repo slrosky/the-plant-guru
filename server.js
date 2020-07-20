@@ -21,6 +21,7 @@ app.use(require('./config/auth'));
   /*--- Spot for api routes ---*/
 app.use('/api/users', require('./routes/api/users'));
 app.use('/api/plants', require('./routes/api/plants'));
+app.use('/api/plantMatch', require('./routes/api/plantMatch'));
   /*--- Spot for catch all route ---*/
 // set up listen on different port 
 const port = process.env.PORT || 3001;

@@ -3,15 +3,34 @@ header {
   font-weight: bold;
 }
 
-.quizQuestion {
-  display: flex;
-  /* flex-direction: column; */
-  align-items: center;
-  justify-content: left;
-  margin: 40px;
-  font-size: 18px;
+label {
+  color: green;
+  font-weight: bold;
 }
 
-.quizOption {
-  color: green;
+.quizQuestion input {
+  font-stretch: ultra-expanded;
 }
+
+form {
+  margin: 40px;
+}
+
+.quizQuestion {
+  padding: 0 0 20px 0;
+}
+
+h2 {
+  background: green;
+  color: white;
+  margin: 40px 100px 0px 40px;
+  padding: 10px;
+}
+
+/* input {
+  background: green;
+  color: white;
+  border-radius: 20vh;
+  padding: 5px 10px;
+  border: rgba(48, 70, 11, 0.81);
+} */

@@ -4,12 +4,15 @@ import { Route, Switch } from "react-router-dom";
 import NavBar from "../../components/NavBar/NavBar";
 import WelcomeMessage from "../../components/WelcomeMessage/WelcomeMessage";
 import AccountPage from "../AccountPage/AccountPage";
+import PlantMatchPage from "../PlantMatchPage/PlantMatchPage";
 import QuizPage from "../QuizPage/QuizPage";
 import SignupPage from "../SignupPage/SignupPage";
 import LoginPage from "../LoginPage/LoginPage";
 import userService from "../../utils/userService";
 import qData from "../../constants/QuestionData";
 import * as plantAPI from "../../utils/plantAPI";
+import * as helpers from "../../utils/helpers";
+import * as plantMatchService from "../../utils/plantMatchService";
 
 class App extends Component {
   constructor() {
@@ -18,9 +21,8 @@ class App extends Component {
       ...this.getInitialState(),
       user: userService.getUser(),
       userQuizChoices: [],
-      plantMatches: [],
       plants: [],
-      plant: [],
+      plant: {},
     };
   }
 
@@ -39,10 +41,6 @@ class App extends Component {
     this.setState({ user: null });
   };
 
-  // handleCreateMatch = () => {
-  //   userQuizChoices.forEach()
-  // }
-
   // updateUserChoices = () => {
   //   let userQuizChoices = []
   //   if (checked === true) {
@@ -52,19 +50,37 @@ class App extends Component {
   //   }
   // }
 
-  handleSubmitQuiz = (userQuizChoices) => {
-    this.setState({ userQuizChoices });
-    console.log("Quiz was submitted");
+  // handleNewMatch = async (newMatchData) => {
+  //   const newMatch = await plantMatchService.create(newMatchData);
+  //   this.setState(
+  //     (state) => ({
+  //       plantmatches: [...state.plantmatches, newMatch],
+  //     }),
+  //     () => this.props.history.push("/")
+  //   );
+  // };
+
+  handleSubmitQuiz = () => {
+    const plants = this.state.plants;
+    const plant = helpers.randomPlant(this.state.plants);
+    const plantPayload = {
+      name: plant.common_name,
+      image: plant.image_url
+    }
+    plantMatchService.create(plantPayload)
+    // setState of plantMatches
+    // call create function
   };
 
   async componentDidMount() {
     const plants = await plantAPI.getAll();
     console.log(plants.data.data);
     this.setState({ plants: plants.data.data });
-    let x = Math.floor(Math.random() * 20 - 1);
-    console.log(x);
-    console.log(this.state.plants[x].common_name);
-    this.setState({ plant: this.state.plants[x] });
+    // let x = Math.floor(Math.random() * 20 - 1);
+    // console.log(x);
+    // console.log(this.state.plants[x].common_name);
+    // this.setState({ plant: this.state.plants[x] });
+    // do crud functionality here
   }
 
   render() {
@@ -96,6 +112,13 @@ class App extends Component {
             )}
           />
           <Route exact path="/account" render={(props) => <AccountPage />} />
+          <Route
+            exact
+            path="/plantmatches"
+            render={(props) => (
+              <PlantMatchPage user={this.state.user} plant={this.state.plant} />
+            )}
+          />
           <Route
             exact
             path="/quiz"

@@ -1,11 +1,15 @@
 h1 {
-    font-size: 80px;
-    padding: 20vh
+  font-size: 80px;
+  margin: 100px;
 }
 
 .QuizLink {
-    color: green;
+  color: rgb(107, 197, 87);
 }
 a:visited {
-    color: green;
+  color: rgb(107, 197, 87);
+}
+
+.WelcomePage img {
+  min-height: 90px;
 }
