@@ -93,7 +93,17 @@ class App extends Component {
           <NavBar user={this.state.user} handleLogout={this.handleLogout} />
         </header>
         <Switch>
-          <Route exact path="/" render={() => <WelcomeMessage />} />
+          <Route
+            exact
+            path="/"
+            render={({ history }) => (
+              <WelcomeMessage
+                history={history}
+                handleLogout={this.handleLogout}
+                user={this.state.user}
+              />
+            )}
+          />
           <Route
             exact
             path="/signup"
@@ -125,13 +135,14 @@ class App extends Component {
           <Route
             exact
             path="/quiz"
-            render={(props) => (
+            render={({ history }) => (
               <QuizPage
                 user={this.state.user}
                 qData={qData}
                 // handleUpdateChoice={this.handleUpdateChoice}
                 handleSubmitQuiz={this.handleSubmitQuiz}
                 plant={this.state.plant}
+                history={history}
               />
             )}
           />
