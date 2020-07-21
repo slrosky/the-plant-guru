@@ -2,7 +2,7 @@ const PlantMatch = require("../models/plantMatch");
 
 module.exports = {
   create,
-  plantMatchIndex,
+  getAllPlantMatches,
   show,
   deleteOne,
   update,
@@ -14,10 +14,10 @@ async function create(req, res) {
   res.status(201).json(match);
 }
 
-async function plantMatchIndex(req, res) {
-  PlantMatch.find({ user: req.body.user._id }, function (err, match) {
-    res.json(match);
-  });
+async function getAllPlantMatches(req, res) {
+  const allMatches = await PlantMatch.find({ user: req.user._id });
+  console.log(allMatches);
+  res.status(200).json(allMatches);
 }
 
 async function show(req, res) {

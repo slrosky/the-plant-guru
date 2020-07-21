@@ -63,18 +63,21 @@ class App extends Component {
   handleSubmitQuiz = () => {
     const plants = this.state.plants;
     const plant = helpers.randomPlant(this.state.plants);
+    console.log(plant);
     const plantPayload = {
       name: plant.common_name,
-      image: plant.image_url
-    }
-    plantMatchService.create(plantPayload)
+      image: plant.image_url,
+    };
+    // plantMatchService.upload ?
+    plantMatchService.create(plantPayload);
+    this.setState({ plant });
     // setState of plantMatches
     // call create function
   };
 
   async componentDidMount() {
     const plants = await plantAPI.getAll();
-    console.log(plants.data.data);
+    // console.log(plants.data.data);
     this.setState({ plants: plants.data.data });
     // let x = Math.floor(Math.random() * 20 - 1);
     // console.log(x);

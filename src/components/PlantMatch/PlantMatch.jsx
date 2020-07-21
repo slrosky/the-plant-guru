@@ -1,18 +1,21 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { render } from "@testing-library/react";
+import * as plantMatchService from "../../utils/plantMatchService";
 
 // have a state - set it equal to the api that is fetched
 // funtion getPlant
 
-const PlantMatch = (props) => {
+const PlantMatch = ({plant}) => {
+  // fetch array of plants with the logged in user id
+  let plantsArr = plantMatchService.getAllMatches();
+  console.log(plantsArr);
+
   return (
     <div className="container">
       <div>
-        <h3>{props.plant.common_name}</h3>
-      </div>
-      <div className="plantImage">
-        <img src={props.plant.image_url} alt="" />
+        <div>
+        </div>
       </div>
     </div>
   );

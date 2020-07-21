@@ -13,6 +13,17 @@ export function create(match) {
   }).then((res) => res.json());
 }
 
+export function getAllMatches() {
+    return fetch(BASE_URL, {
+        method: "GET",
+        headers: {
+            "Content-type": "application/json",
+            Authorization: "Bearer " + tokenService.getToken(),
+        },
+    }).then(res => res.json())
+}
+
+
 export function update(match) {
   return fetch(`${BASE_URL}/${match._id}`, {
     method: "PUT",
@@ -21,5 +32,5 @@ export function update(match) {
       Authorization: "Bearer " + tokenService.getToken(),
     },
     body: JSON.stringify(match),
-  }).then((res) => res.json());
+  }).then((res) => console.log(res.json()));
 }

@@ -1,15 +1,11 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
-// import qData from "../../constants/QuestionData";
 import "./Quiz.css";
 
 class Quiz extends Component {
   state = {
     userAnswers: [],
-    answers: {
-      Q1: null,
-      Q2: null,
-    },
+    answers: {},
   };
 
   handleUpdateChoice = (e) => {
@@ -22,7 +18,7 @@ class Quiz extends Component {
 
   handleSubmit = (e) => {
     e.preventDefault();
-    this.props.handleSubmitQuiz()
+    this.props.handleSubmitQuiz();
     // parses results and sets state to result
   };
 
@@ -43,7 +39,6 @@ class Quiz extends Component {
               <br></br>
               <input
                 type="radio"
-                class="container"
                 value="A"
                 name="No Light"
                 onChange={this.handleUpdateChoice}
