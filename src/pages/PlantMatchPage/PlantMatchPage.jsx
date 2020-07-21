@@ -7,7 +7,10 @@ const PlantMatchPage = (props) => {
   return (
     <div className="PlantMatchPage">
       <h2>Take a look at your plant matches!</h2>
-      <PlantMatch plant={props.plant} />
+      <PlantMatch
+        plant={props.plant}
+        handleDeleteMatch={props.handleDeleteMatch}
+      />
     </div>
   );
 };

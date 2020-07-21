@@ -16,31 +16,44 @@ class PlantMatch extends Component {
     this.setState({ plantsArr });
   }
 
-  async handleDeletePlantMatch (plant) {
-    // await plantMatchService.deleteOne(plant);
-    // this.setState(state => ({
-    //   // Yay, filter returns a NEW array
-    //   plantsArr: state.plantsArr.filter(plant => plant._id !== id)
-    // }), () => this.props.history.push('/'));
-  }
+  newMatch = (id) => {
+    let newArr = this.state.plantsArr.filter((p) => p._id !== id);
+    console.log("this is the new array", newArr);
+  };
+
+  // async handleDeletePlantMatch() {
+  //   let plant = await plantMatchService.getAllMatches();
+  //   await plantMatchService.deleteOne();
+  //   this.setState(state => ({
+  //     // Yay, filter returns a NEW array
+  //     plantsArr: state.plantsArr.filter(plant => plant._id !== id)
+  //   }))
+  // }
 
   render() {
     // fetch array of plants with the logged in user id
 
     console.log(this.state.plantsArr);
 
-    const plants = this.state.plantsArr.map((plant) => <div>{plant.name}{plant.image}</div>);
+    const plants = this.state.plantsArr.map((plant) => (
+      <div>
+        {plant.name}
+        {plant.image}
+        <button
+          onClick={() => {
+            this.newMatch(plant._id);
+            this.props.handleDeleteMatch(plant._id);
+          }}
+        >
+          X
+        </button>
+      </div>
+    ));
 
     return (
       <div className="container">
-        <div>
-          {plants}
-          <button
-            // onClick={() => handleDeletePlantMatch(plant._id)}
-          >
-            X
-          </button>
-        </div>
+        <div>{plants}</div>
+        <div></div>
       </div>
     );
   }

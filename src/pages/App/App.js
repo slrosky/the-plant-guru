@@ -23,6 +23,7 @@ class App extends Component {
       userQuizChoices: [],
       plants: [],
       plant: {},
+      matches: [],
     };
   }
 
@@ -75,15 +76,20 @@ class App extends Component {
     // call create function
   };
 
+  handleDeleteMatch = async (id) => {
+    const plant = await plantMatchService.deleteOne(id);
+    console.log("hitting deletematch", plant);
+    this.setState(
+      (state) => ({
+        //     // Yay, filter returns a NEW array
+        matches: state.matches.filter((plant) => plant._id !== id),
+      }));
+  };
+
   async componentDidMount() {
     const plants = await plantAPI.getAll();
-    // console.log(plants.data.data);
-    this.setState({ plants: plants.data.data });
-    // let x = Math.floor(Math.random() * 20 - 1);
-    // console.log(x);
-    // console.log(this.state.plants[x].common_name);
-    // this.setState({ plant: this.state.plants[x] });
-    // do crud functionality here
+    const matches = await plantMatchService.getAllMatches();
+    this.setState({ plants: plants.data.data, matches });
   }
 
   render() {
@@ -129,7 +135,12 @@ class App extends Component {
             exact
             path="/plantmatches"
             render={(props) => (
-              <PlantMatchPage user={this.state.user} plant={this.state.plant} />
+              <PlantMatchPage
+                user={this.state.user}
+                plant={this.state.plant}
+                matches={this.state.matches}
+                handleDeleteMatch={this.handleDeleteMatch}
+              />
             )}
           />
           <Route
