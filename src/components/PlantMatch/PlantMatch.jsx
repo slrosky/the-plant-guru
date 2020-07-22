@@ -15,13 +15,18 @@ class PlantMatch extends Component {
   }
 
   newMatch = (id) => {
-    let newArr = this.state.plantsArr.filter((p) => p._id !== id);
-    console.log("this is the new array", newArr);
+    const currentMatches = this.state.plantsArr;
+    this.setState({
+      plantsArr: currentMatches.filter((p) => p._id !== id)
+    });
   };
 
-  render() {
-    console.log(this.state.plantsArr);
+  // newMatch = (id) => {
+  //   let newArr = this.state.plantsArr.filter((p) => p._id !== id);
+  //   console.log("this is the new array", newArr);
+  // };
 
+  render() {
     const plants = this.state.plantsArr.map((plant) => (
       <div>
         {plant.name}
