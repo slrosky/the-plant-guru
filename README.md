@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# The Plant Guru
 
-## Available Scripts
+_About the app: The full stack app allows a user to get plants that match their lifestyle and needs based on a survey. At currect deployment, the survey does not parse the inputs to match with a database object, however, users can still delight in the joy of a simulation of the process by submitting a quiz which will randomly generate a match for them. All plant data has been sources from a third party API, [trefle](https://trefle.io/)._
 
-In the project directory, you can run:
+## Views of The Pant Guru
 
-### `yarn start`
+No user signed in homepage
+![No user homepage](https://i.imgur.com/76jC0gh.png)
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Welcome message once user is signed up or logged in
+![logged in user message](https://i.imgur.com/UZ2AETh.png)
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Quiz with submit button
+![quiz](https://i.imgur.com/mbyA7DP.png)
 
-### `yarn test`
+Account page with plant matches
+![plant matches](https://i.imgur.com/Rbr5XWy.png)
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Technologies Used:
 
-### `yarn build`
+- Express
+- MongoDB
+- Node.js
+- Javascript
+- CSS
+- HTML
+- React.js
+- Heroku
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+## Getting Started:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+#### Link to heroku deployed app [here](https://the-plant-guru.herokuapp.com/)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+#### Link to Trello board [here](https://trello.com/b/I10R9vOj/the-plant-guru)
 
-### `yarn eject`
+## Next Steps:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+_Icebox Items_
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+- [ ] Add actual logic to quiz and define parameters
+- [ ] Add detail view for each plant that a user can be directoed to when clicking on a particular match in their account
+- [ ] Continue developing css
+- [ ] Add an "all plants" page with a filter ability

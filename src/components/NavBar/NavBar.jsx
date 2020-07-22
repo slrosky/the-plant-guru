@@ -11,7 +11,7 @@ const NavBar = (props) => {
         Log Out
       </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;
-      <Link to="/account" className="NavPage-AccountLink">
+      <Link to="/plantmatches" className="NavPage-AccountLink">
         My Account
       </Link>
       &nbsp;&nbsp;&nbsp;&nbsp;

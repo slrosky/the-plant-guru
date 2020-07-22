@@ -19,7 +19,7 @@ class Quiz extends Component {
   handleSubmit = (e) => {
     e.preventDefault();
     this.props.handleSubmitQuiz();
-    this.props.history.push('/plantmatches')
+    this.props.history.push("/plantmatches");
     // parses results and sets state to result
   };
 
@@ -206,10 +206,7 @@ class Quiz extends Component {
             </div>
             {/* <Link to="/plantmatches" className="Submit"> */}
             <div className="Submit">
-              <input
-                type="submit"
-                value="Get My Plant Matches!"
-              />
+              <input type="submit" value="Get My Plant Matches!" />
             </div>
             {/* </Link> */}
           </form>

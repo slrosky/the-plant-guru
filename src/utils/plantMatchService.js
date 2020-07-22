@@ -14,15 +14,14 @@ export function create(match) {
 }
 
 export function getAllMatches() {
-    return fetch(BASE_URL, {
-        method: "GET",
-        headers: {
-            "Content-type": "application/json",
-            Authorization: "Bearer " + tokenService.getToken(),
-        },
-    }).then(res => res.json())
+  return fetch(BASE_URL, {
+    method: "GET",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: "Bearer " + tokenService.getToken(),
+    },
+  }).then((res) => res.json());
 }
-
 
 export function update(match) {
   return fetch(`${BASE_URL}/${match._id}`, {
@@ -37,6 +36,10 @@ export function update(match) {
 
 export function deleteOne(id) {
   return fetch(`${BASE_URL}/${id}`, {
-    method: 'DELETE'
-  }).then(res => res.json());
+    method: "DELETE",
+    headers: {
+      "Content-type": "application/json",
+      Authorization: "Bearer " + tokenService.getToken(),
+    }
+  }).then((res) => res.json());
 }

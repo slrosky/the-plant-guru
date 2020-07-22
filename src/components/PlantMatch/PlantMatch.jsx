@@ -2,9 +2,7 @@ import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import { render } from "@testing-library/react";
 import * as plantMatchService from "../../utils/plantMatchService";
-
-// have a state - set it equal to the api that is fetched
-// funtion getPlant
+import "./PlantMatch.css";
 
 class PlantMatch extends Component {
   state = {
@@ -21,24 +19,13 @@ class PlantMatch extends Component {
     console.log("this is the new array", newArr);
   };
 
-  // async handleDeletePlantMatch() {
-  //   let plant = await plantMatchService.getAllMatches();
-  //   await plantMatchService.deleteOne();
-  //   this.setState(state => ({
-  //     // Yay, filter returns a NEW array
-  //     plantsArr: state.plantsArr.filter(plant => plant._id !== id)
-  //   }))
-  // }
-
   render() {
-    // fetch array of plants with the logged in user id
-
     console.log(this.state.plantsArr);
 
     const plants = this.state.plantsArr.map((plant) => (
       <div>
         {plant.name}
-        {plant.image}
+        <img src={`${plant.image}`}></img>
         <button
           onClick={() => {
             this.newMatch(plant._id);
@@ -51,9 +38,11 @@ class PlantMatch extends Component {
     ));
 
     return (
-      <div className="container">
-        <div>{plants}</div>
-        <div></div>
+      <div className="PlantMatchListItem">
+        <div className="PlantMatchListItem">{plants}</div>
+        <div className="PlantMatchListItemLink">
+          Want another match? Take the <Link to="/quiz">Quiz</Link> Again
+        </div>
       </div>
     );
   }
